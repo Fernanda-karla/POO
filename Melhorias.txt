@@ -1,0 +1,2 @@
+Pelo que identificamos de acordo com "Bad Smells" (Mau cheiros)
+por enquanto não precisa de melhorias.

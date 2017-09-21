@@ -1,6 +1,6 @@
 package br.ufpb;
 
 public enum Genero{
-	SERTANEJO, FORRO, FUNK, PAGODE;
+	 PADRÃO, SERTANEJO, FORRO, FUNK, PAGODE;
 	
 }
