@@ -1,2 +1,4 @@
 Pelo que identificamos de acordo com "Bad Smells" (Mau cheiros)
-por enquanto n�o precisa de melhorias.
+por enquanto não precisa de melhorias.
+Uma melhoria a ser feita é o metodo de lançamento onde o usuario vai através de um boolean dizer se a musica a ser cadastrada é ou não um lançamento.
+Outra seria a que gravadora a musica pertence.
