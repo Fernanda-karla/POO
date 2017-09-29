@@ -12,12 +12,21 @@ import javax.swing.JOptionPane;
 
 public class MusicaGUI extends JFrame{
 	
-	JLabel linha1, linha2;
-	ImageIcon musicaImg = new ImageIcon("./imgs/como-transferir-musicas.png");
-	ImageIcon addImg = new ImageIcon("./imgs/music_blue_add.png");
-	ImageIcon pesqImg = new ImageIcon("./imgs/search-icon-psd-png.jpg");
-	ImageIcon removeImg = new ImageIcon("./imgs/musica-botao-remover_318-31365.jpg");
-	JButton botaoAdicionar, botaoPesquisar, botaoRemover;
+	private JLabel linha1;
+	private JLabel linha2;
+	private JButton botaoAdicionar;
+	private JButton botaoPesquisar;
+	private JButton tipoDePesquisa;
+	private JButton botaoRemover;
+	private static MusicaGUI frame;
+
+	
+	ImageIcon musicaImg = new ImageIcon("./imgs/61998a74a3bd3a4e32f68c423aa7e6f7--cone-do-c-rculo-de-msica-by-vexels.png");
+	ImageIcon addImg = new ImageIcon("./imgs/add_track_song_music_include_multimedia_control-128.png");
+	ImageIcon pesqImg = new ImageIcon("./imgs/14115359-ico-pos-graduacao.png");
+	ImageIcon tipoImg = new ImageIcon("./imgs/Button_15-128.png");
+	ImageIcon removeImg = new ImageIcon("./imgs/delete-128.png");
+	
 	MemoriaMusica musicFacade = new MemoriaMusica();
 	
 	public MusicaGUI(){
@@ -27,24 +36,29 @@ public class MusicaGUI extends JFrame{
 		setLocation(150, 150);
 		setResizable(false);
 		
-		getContentPane().setBackground(Color.BLUE);
-		linha1 = new JLabel("Meu Sistema de Música", JLabel.CENTER);
-		linha1.setForeground(Color.red);
+		getContentPane().setBackground(Color.orange);
+		linha1 = new JLabel("Sistema de Música", JLabel.CENTER);
+		linha1.setForeground(Color.black);
 		linha1.setFont(new Font("Serif", Font.BOLD, 24));
 		linha2 = new JLabel(musicaImg, JLabel.CENTER);
 		botaoAdicionar = new JButton("Adiconar Música", addImg);
 		botaoAdicionar.addActionListener(new MusicaAddController(musicFacade, this));
 		botaoPesquisar = new JButton("Pesquisar uma Música", pesqImg);
 		botaoPesquisar.addActionListener(new MusicaSearchController(musicFacade, this));
+		tipoDePesquisa = new JButton("Pesquisar por tipo de música", tipoImg);
+		tipoDePesquisa.addActionListener(new MusicaTypeSearchController(musicFacade, this));
 		botaoRemover = new JButton("Remover uma música", removeImg);
 		botaoRemover.addActionListener(new MusicaRemoveController(musicFacade, this));
-		getContentPane().setLayout(new GridLayout(3, 2));
+		getContentPane().setLayout(new GridLayout(4, 2));
 		getContentPane().add(linha1);
 		getContentPane().add(botaoAdicionar);
 		getContentPane().add(linha2);
 		getContentPane().add(botaoPesquisar);
 		getContentPane().add(new JLabel());
 		getContentPane().add(botaoRemover);
+		getContentPane().add(new JLabel());
+		getContentPane().add(tipoDePesquisa);
+		
 	}
 
 	public static double leDuracao(JFrame janelaPai) {
@@ -76,6 +90,18 @@ public class MusicaGUI extends JFrame{
 			}
 		}
 		return genero;
+	}
+	
+	public static void main (String [] args){
+		JFrame janela = new MusicaGUI();
+		janela.setVisible(true);
+		WindowListener fechadorDeJanelaPrincipal = new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				System.exit(0);
+			}
+		};
+		janela.addWindowListener(fechadorDeJanelaPrincipal);
+		
 	}
 
 }
