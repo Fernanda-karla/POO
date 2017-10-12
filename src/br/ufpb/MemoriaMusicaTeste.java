@@ -21,7 +21,7 @@ public class MemoriaMusicaTeste {
 		musica.cadastrarMusica(m2);
 		
 		List<Musica> tipoDeMusica = musica.pesquisaMusicaPorGenero(Genero.FORRO);
-		assertTrue(tipoDeMusica.size() == 1);
+		assertTrue(tipoDeMusica.size() == 2);
 		
 		try {
 			musica.removerMusica("Mudou a Estação");

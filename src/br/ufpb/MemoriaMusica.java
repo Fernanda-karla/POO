@@ -15,7 +15,7 @@ public class MemoriaMusica implements SistemaDeMusica{
 
 	@Override
 	public void cadastrarMusica(Musica music) {
-		this.musicais.put(null, music);
+		this.musicais.put(music.getNome(), music);
 		
 	}
 

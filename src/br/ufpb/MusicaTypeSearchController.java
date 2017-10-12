@@ -18,7 +18,7 @@ public class MusicaTypeSearchController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Genero genero = MusicaGUI.leGenero(janelaPrincipal);
-
+		musicaFacade.pesquisaMusicaPorGenero(genero);
 	}
 
 }

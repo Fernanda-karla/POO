@@ -25,7 +25,7 @@ public class MusicaAddController implements ActionListener{
 		
 		Musica m = new Musica (nome, duracao, genero);
 		musicaFacade.cadastrarMusica(m);
-		
+		JOptionPane.showMessageDialog(janelaPrincipal,m.toString());
 	}
 
 }
