@@ -1,15 +1,23 @@
 package br.ufpb;
 
-public class Musica{
+import java.io.Serializable;
+
+public class Musica implements Serializable{
 	
 	private String nome;
 	private double duracao;
-	private Genero genero;
+	private Genero generos;
 	
-	public Musica(String nome, double duracao, Genero genero){
+	public Musica(String nome, double duracao, Genero generos){
 		this.nome = nome;
 		this.duracao = duracao;
-		this.genero = genero;
+		this.generos = generos;
+	}
+	
+	public Musica(){
+		this.nome = "";
+		this.duracao = 0.0;
+		this.generos = Genero.PADRÃO;
 	}
 	
 	public String getNome(){
@@ -29,18 +37,14 @@ public class Musica{
 	}
 	
 	public Genero getGenero(){
-		return genero;
+		return generos;
 	}
 	
 	public void setGenero(Genero gen){
-		this.genero = gen;
+		this.generos = gen;
 	}
 	
 	public String toString(){
-		return "Nome da música: "+this.nome+"tempo de duracao: "+this.duracao+"do genero: "+this.genero;
+		return "Nome da música:"+this.nome+" Tempo de duracao:"+this.duracao+" do Genero:"+this.generos;
 	}
-	
-	
-	
-
 }

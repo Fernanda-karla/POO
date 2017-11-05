@@ -20,11 +20,12 @@ public class MusicaRemoveController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String nomeRemover = JOptionPane.showInputDialog("Digite o nome da música que deseja remover: ");
 		try {
-			musicaFacade.removerMusica(nomeRemover);
+			Musica m = musicaFacade.removerMusica(nomeRemover);
+			JOptionPane.showMessageDialog(null, "a música: "+m.toString()+" foi removida");
+			JOptionPane.showMessageDialog(null,"Musicas ainda na lista:"+musicaFacade.ListaDeMusicas());
 		} catch (MusicaInexistenteException e1) {
-			e1.printStackTrace();
+			JOptionPane.showMessageDialog(janelaPrincipal, e1.getMessage());
 		}
-
 	}
 
 }

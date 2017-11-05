@@ -3,6 +3,9 @@ package br.ufpb;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -74,7 +77,7 @@ public class MusicaGUI extends JFrame{
 		Genero genero = Genero.PADRÃO;
 		while(genero == Genero.PADRÃO){
 			int tipoMusica = Integer.parseInt(JOptionPane.showInputDialog("A música é de que tipo: \n1.Forró.\n2.Sertanejo.\n3.Funk.\n4.Pagode.\n5.Outro."));
-			switch(tipoMusica){
+				switch(tipoMusica){
 				case 1:
 					genero = Genero.FORRO;
 					break;
@@ -103,5 +106,7 @@ public class MusicaGUI extends JFrame{
 		janela.addWindowListener(fechadorDeJanelaPrincipal);
 		
 	}
+	
+	
 
 }

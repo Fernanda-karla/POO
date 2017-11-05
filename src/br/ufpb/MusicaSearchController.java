@@ -19,13 +19,12 @@ public class MusicaSearchController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String nomeMusica = JOptionPane.showInputDialog("Digite o nome da musica que queira pesquisar: ");
-		Genero genero = MusicaGUI.leGenero(janelaPrincipal);
 		try {
-			musicaFacade.pesquisaMusica(nomeMusica, genero);
+			String m = musicaFacade.pesquisarMusica(nomeMusica);
+			JOptionPane.showMessageDialog(janelaPrincipal, m);
 		} catch (MusicaInexistenteException e1) {
-			e1.printStackTrace();
+			JOptionPane.showMessageDialog(janelaPrincipal, e1.getMessage());
 		}
-
 	}
 
 }

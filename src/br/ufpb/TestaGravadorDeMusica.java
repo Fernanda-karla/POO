@@ -37,17 +37,15 @@ public class TestaGravadorDeMusica {
 	public void MemoriaMusicateste(){
 		MemoriaMusica music = new MemoriaMusica();
 		
-		List<Musica> m1 = (List<Musica>) new Musica("O Palhaço", 3.56, Genero.FORRO);
-		music.cadastrarMusica((Musica) m1);
+		List<Musica> m1 = new ArrayList<Musica>();
+		m1.add(new Musica("O palhaço", 3.56, Genero.FORRO));
 		GravadorDeMusica m = new GravadorDeMusica("musica.txt");
 		try {
 			m.gravarMusica(m1);
+			assertTrue(m.leMusica().size()==1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 		
 	}

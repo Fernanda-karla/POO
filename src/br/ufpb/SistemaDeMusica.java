@@ -4,12 +4,15 @@ import java.util.List;
 
 public interface SistemaDeMusica {
 	
-	public void cadastrarMusica(Musica music);
+	public void cadastrarMusica(Musica m);
 	
-	public Musica pesquisaMusica(String nome, Genero genero) throws MusicaInexistenteException;
+	public String pesquisarMusica(String nome) throws MusicaInexistenteException;
 	
 	public List<Musica> pesquisaMusicaPorGenero(Genero gen);
 	
-	public void removerMusica(String nome) throws MusicaInexistenteException;
+	public Musica removerMusica(String nome) throws MusicaInexistenteException;
+	
+	public String ListaDeMusicas();
+	
 
 }

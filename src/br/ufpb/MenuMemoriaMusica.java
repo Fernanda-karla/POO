@@ -10,8 +10,6 @@ public class MenuMemoriaMusica {
 		
 		MemoriaMusica m1 = new MemoriaMusica();
 		
-		System.out.println(m1);
-		
 		boolean sair = false;
 		while(sair == false){
 			int opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite uma opção: \n1.Cadastar uma Música.\n2.Pesquisar uma Música.\n3.Pesquisar Música por Genero.\n4.Remover uma Música.\n5.Sair."));
@@ -39,47 +37,18 @@ public class MenuMemoriaMusica {
 					}
 					Musica music = new Musica(nome, tempoDeDuracao, tipo);
 					m1.cadastrarMusica(music);
+					System.out.println(music);
 				}
-	
 				break;
 			case 2:
 				String nomeMusica = JOptionPane.showInputDialog("Digite o nome da musica que queira pesquisar: ");
-				int escolha = Integer.parseInt(JOptionPane.showInputDialog("Digite o tipo da música: \n1.Forró.\n2.Sertanejo.\n3.Funk.\n4.Pagode.\n5.Outro."));
-				Genero qualMusica = Genero.PADRÃO;
-				switch(escolha){
-				case 1:
-					qualMusica = Genero.FORRO;
-					try {
-						m1.pesquisaMusica(nomeMusica, qualMusica);
-					} catch (MusicaInexistenteException e) {
-						JOptionPane.showMessageDialog(null, "O nome da música é: "+nomeMusica+"O tipo da música é: "+qualMusica);
-					}
-					break;
-				case 2:
-					qualMusica = Genero.SERTANEJO;
-					try {
-						m1.pesquisaMusica(nomeMusica, qualMusica);
-					} catch (MusicaInexistenteException e) {
-						JOptionPane.showMessageDialog(null, "O nome da música é: "+nomeMusica+"O tipo da música é: "+qualMusica);
-					}
-					break;
-				case 3:
-					qualMusica = Genero.FUNK;
-					try {
-						m1.pesquisaMusica(nomeMusica, qualMusica);
-					} catch (MusicaInexistenteException e) {
-						JOptionPane.showMessageDialog(null, "O nome da música é: "+nomeMusica+"O tipo da música é: "+qualMusica);
-					}
-					break;
-				case 4:
-					qualMusica = Genero.PAGODE;
-					try {
-						m1.pesquisaMusica(nomeMusica, qualMusica);
-					} catch (MusicaInexistenteException e) {
-						JOptionPane.showMessageDialog(null, "O nome da música é: "+nomeMusica+"O tipo da música é: "+qualMusica);
-					}
-					break;
+				try {
+					String m = m1.pesquisarMusica(nomeMusica);
+					System.out.println(m);
+				} catch (MusicaInexistenteException e) {
+					System.out.println(e.getMessage());
 				}
+				break;
 				
 				
 			case 3:
@@ -111,9 +80,11 @@ public class MenuMemoriaMusica {
 			case 4:
 				String nomeRemover = JOptionPane.showInputDialog("Digite o nome da música que deseja remover: ");
 				try {
-					m1.removerMusica(nomeRemover);
+					Musica m = m1.removerMusica(nomeRemover);
+					JOptionPane.showMessageDialog(null, "a música: "+m.toString()+" foi removida");
+					JOptionPane.showMessageDialog(null,"Musicas ainda na lista:"+m1.ListaDeMusicas());
 				} catch (MusicaInexistenteException e) {
-					JOptionPane.showMessageDialog(null, "As músicas que estão são: "+m1);
+					System.out.println(e.getMessage());
 				}
 				break;
 				
