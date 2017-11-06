@@ -21,6 +21,7 @@ public class MusicaGUI extends JFrame{
 	private JButton botaoPesquisar;
 	private JButton tipoDePesquisa;
 	private JButton botaoRemover;
+	private JButton botaoAjuda;
 	private static MusicaGUI frame;
 
 	
@@ -29,6 +30,7 @@ public class MusicaGUI extends JFrame{
 	ImageIcon pesqImg = new ImageIcon("./imgs/14115359-ico-pos-graduacao.png");
 	ImageIcon tipoImg = new ImageIcon("./imgs/Button_15-128.png");
 	ImageIcon removeImg = new ImageIcon("./imgs/delete-128.png");
+	ImageIcon ajudaImg = new ImageIcon("./imgs/Button-help-icon.png");
 	
 	MemoriaMusica musicFacade = new MemoriaMusica();
 	
@@ -52,7 +54,9 @@ public class MusicaGUI extends JFrame{
 		tipoDePesquisa.addActionListener(new MusicaTypeSearchController(musicFacade, this));
 		botaoRemover = new JButton("Remover uma música", removeImg);
 		botaoRemover.addActionListener(new MusicaRemoveController(musicFacade, this));
-		getContentPane().setLayout(new GridLayout(4, 2));
+		botaoAjuda = new JButton("Ajuda", ajudaImg);
+		botaoAjuda.addActionListener( new AjudaController(musicFacade,this));
+		getContentPane().setLayout(new GridLayout(5, 2));
 		getContentPane().add(linha1);
 		getContentPane().add(botaoAdicionar);
 		getContentPane().add(linha2);
@@ -61,6 +65,8 @@ public class MusicaGUI extends JFrame{
 		getContentPane().add(botaoRemover);
 		getContentPane().add(new JLabel());
 		getContentPane().add(tipoDePesquisa);
+		getContentPane().add(new JLabel());
+		getContentPane().add(botaoAjuda);
 		
 	}
 
